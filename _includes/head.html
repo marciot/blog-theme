@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+{% if page.title -%}
+{{ page.title }} · {{ site.title }}
+{% else -%}
+{{ site.title }}
+{% endif -%}
+</title>
+<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/syntax-highlighting.css' | relative_url }}">
+{% if page.assets -%}
+<base href="{{ page.assets | relative_url }}/" />
+{% endif -%}
+{% if page.css -%}
+{% for stylesheet in page.css -%}
+<link rel="stylesheet" href="{{ stylesheet }}">
+{% endfor -%}
+{% endif -%}
+{% if page.scripts -%}
+{% for script in page.scripts -%}
+<script src="{{ script }}"></script>
+{% endfor -%}
+{% endif -%}
+{% if page.extra_css -%}
+<style>
+{{ page.extra_css }}
+</style>
+{% endif -%}
+{% seo -%}
