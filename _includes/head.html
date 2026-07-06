@@ -25,6 +25,11 @@
 <script src="{{ script }}"></script>
 {% endfor -%}
 {% endif -%}
+{% if page.script_modules -%}
+{% for script in page.script_modules -%}
+<script src="{{ script }}" type="module"></script>
+{% endfor -%}
+{% endif -%}
 {% if page.extra_css -%}
 <style>
 {{ page.extra_css }}
