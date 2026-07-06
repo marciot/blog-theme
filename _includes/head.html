@@ -9,8 +9,11 @@
 </title>
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/syntax-highlighting.css' | relative_url }}">
+{% if page.absolute_assets -%}
+  <base href="{{ page.absolute_assets }}/" />
+{% endif -%}
 {% if page.assets -%}
-<base href="{{ page.assets | relative_url }}/" />
+  <base href="{{ page.assets | relative_url }}/" />
 {% endif -%}
 {% if page.css -%}
 {% for stylesheet in page.css -%}
